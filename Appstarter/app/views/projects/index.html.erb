@@ -22,10 +22,10 @@
         <td><%= project.name %></td>
         <td><%= project.creator %></td>
         <td><%= project.description %></td>
-        <td><%= project.image %></td>
+        <td><%= image_tag project.image %></td>
         <td><%= project.deadline %></td>
-        <td><%= project.goal %></td>
-        <td><%= project.user %></td>
+        <td><%=number_to_currency project.goal %></td>
+        <td><%= project.user.try(:username) %></td>
         <td><%= link_to 'Show', project %></td>
         <td><%= link_to 'Edit', edit_project_path(project) %></td>
         <td><%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>

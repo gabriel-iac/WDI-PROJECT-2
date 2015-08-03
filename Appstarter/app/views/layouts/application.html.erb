@@ -13,19 +13,8 @@
 </head>
 
 <body>
-  <% if current_user %>
-  <p>Hello, <%= current_user.username %></p>
-  <%= link_to "logout", logout_path, method: :delete, data: {confirm: "are you sure?"} %>
-  <% else %>
-  <%= link_to "please login", login_path %>
-  <% end %>
-
-  <% flash.each do |name, message| %>
-  <div class="flash-message flash-message-<%= name %>">
-    <%= message %>
-  </div>
-  <% end %>
   
+  <%= render 'header' %>
   <%= yield %>
 
 </body>
