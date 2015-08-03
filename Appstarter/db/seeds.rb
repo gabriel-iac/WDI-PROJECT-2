@@ -16,3 +16,10 @@ p2 = u2.projects.create!(name: 'Everest Cruise', creator: 'Schettino co.', descr
 
 r1 = p1.rewards.create!(title: 'T-shirt', value: 100, description: 'A t-shirt with logo', quantity: 50, project_id: 1)
 r1 = p1.rewards.create!(title: 'Space suit', value: 4000, description: 'A Completely new spacesuit with google glass', quantity: 10, project_id: 1)
+
+r2 = p2.rewards.create!(title: 'Free dinner', value: 50, description: 'A Dinner', quantity: 50, project_id: 1)
+r2 = p2.rewards.create!(title: 'Pool party', value: 4000, description: 'An incredible experience ', quantity: 10, project_id: 1)
+pl1 = r1.pledges.create!(amount: 100, user_id:2, project_id:1)
+pl2 = r1.pledges.create!(amount: 1000, user_id:2, project_id:1)
+pl3 = r1.pledges.create!(amount: 1000, user_id:3, project_id:2)
+pl4 = r1.pledges.create!(amount: 1000, user_id:4, project_id:2)
