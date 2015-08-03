@@ -11,7 +11,7 @@ class RewardsController < ApplicationController
 
     respond_to do |format|
       if @reward.save
-        format.html { redirect_to Project.find(@reward.project_id), notice: 'reward was successfully created.' }
+        format.html { redirect_to Project.find(@reward.project_id), notice: 'reward is successfully created.' }
 
       else
         format.html { render :new , notice: 'You have to complete the fields' }
