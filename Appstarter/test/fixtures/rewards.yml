@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  value: 1.5
+  description: MyText
+  quantity: 1
+  estimated_delivery: 2015-08-03
+  project_id: 
+
+two:
+  title: MyString
+  value: 1.5
+  description: MyText
+  quantity: 1
+  estimated_delivery: 2015-08-03
+  project_id: 

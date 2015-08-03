@@ -35,5 +35,24 @@
   <%= @project.user %>
 </p>
 
+<p>
+  <strong>Rewards:</strong>
+  <%= @project.rewards %>
+</p>
+
+<% @project.rewards.each do |reward| %>
+  <ul>
+  
+    <li><%= reward.title%></li>
+    
+     <li>Pledge<%= reward.value%>or more </li>
+     
+    <li><strong>Quantity:</strong>Limited only<%= reward.quantity%>Avaible</li>
+    
+    <li><strong>Description:</strong><%= reward.description%></li>
+   
+    <li> <strong>Delivery:</strong><%= reward.estimated_delivery%></li>
+    </ul>
+    <% end %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
