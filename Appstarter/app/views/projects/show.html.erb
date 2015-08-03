@@ -41,18 +41,37 @@
 </p>
 
 <% @project.rewards.each do |reward| %>
-  <ul>
-  
-    <li><%= reward.title%></li>
-    
-     <li>Pledge<%= reward.value%>or more </li>
-     
-    <li><strong>Quantity:</strong>Limited only<%= reward.quantity%>Avaible</li>
-    
-    <li><strong>Description:</strong><%= reward.description%></li>
-   
-    <li> <strong>Delivery:</strong><%= reward.estimated_delivery%></li>
-    </ul>
-    <% end %>
+<ul>
+
+  <li><%= reward.title%></li>
+
+  <li>Pledge<%= reward.value%>or more </li>
+
+  <li><strong>Quantity:</strong>Limited only<%= reward.quantity%>Avaible</li>
+
+  <li><strong>Description:</strong><%= reward.description%></li>
+
+  <li> <strong>Delivery:</strong><%= reward.estimated_delivery%></li>
+
+</ul>
+<% end %>
+
+<% if @project.goal - @project.pledges.sum('amount') > 0 -%>
+  <h2><%= @project.goal - @project.pledges.sum('amount') %> </h2>
+  <h4>needed for this project to be successful.</h4>
+<% end -%>
+
+<h2><%= @project.pledges.sum('amount') %> on <%= @project.goal %> pledged</h2>
+<h4>towards a goal of <%= @project.goal %>.</h4>
+
+<%= form_for @pledge do |f| %>
+<div class="field">
+  <%= f.label :amount %><br>
+  <%= f.text_field :amount %>
+</div>
+<%= f.hidden_field :project_id %>
+<div class="actions"><%= f.submit "Pledge"%></div>
+<% end %>
+
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

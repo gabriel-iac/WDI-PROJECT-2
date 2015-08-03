@@ -1,15 +1,12 @@
 Rails.application.routes.draw do
   
 
-  get 'pledges/new'
 
-  get 'pledges/create'
-
-  get 'pledges/destroy'
 
   resources :projects
   resources :users
   resources :rewards
+  resources :pledges, only: [:new, :create, :destroy]
   root 'users#index'
 
 end

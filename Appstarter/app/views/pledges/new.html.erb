@@ -1,2 +1,21 @@
-<h1>Pledges#new</h1>
-<p>Find me in app/views/pledges/new.html.erb</p>
+
+<%= form_for @pledge do |f| %>
+  <% if @pledge.errors.any? %>
+    <div class="error_messages">
+      <h2>Form is invalid</h2>
+      <ul>
+        <% for message in @pledge.errors.full_messages %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.text_field :amount %>
+  </div>
+  <%= hidden_field(:user, :user_id) %>
+  <%= hidden_field(:project, :project_id) %>
+  <div class="actions"><%= f.submit %></div>
+<% end %>
