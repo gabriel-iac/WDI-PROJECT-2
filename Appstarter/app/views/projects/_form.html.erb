@@ -36,6 +36,11 @@
     <%= f.text_field :goal %>
   </div>
   <div class="field">
+    <%= f.label :categories %><br>
+    <%= f.collection_select( :categories, @project.category, :id, :name )%>
+  </div>
+  
+  <div class="field">
    <%= f.hidden_field :user_id %>
   </div>
   <div class="actions">
