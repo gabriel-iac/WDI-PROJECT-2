@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  creator: MyString
+  description: MyText
+  image: MyText
+  deadline: 2015-08-03
+  goal: 1.5
+  user_id: 
+
+two:
+  name: MyString
+  creator: MyString
+  description: MyText
+  image: MyText
+  deadline: 2015-08-03
+  goal: 1.5
+  user_id: 
