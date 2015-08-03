@@ -1,5 +1,7 @@
 User.destroy_all
 Project.destroy_all
+Reward.destroy_all
+
 
 u1 = User.create!(name: 'Gabriel iac', username: 'ninja', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'http://rs581.pbsrc.com/albums/ss252/sarge0946/Big%20Cats/tiger1b.jpg~c200')
 u2 = User.create!(name: 'Chuck Norris', username: 'god', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'https://usahitman.com/wp-content/uploads/2012/06/Chuck-norris1.jpg')
@@ -17,9 +19,18 @@ p2 = u2.projects.create!(name: 'Everest Cruise', creator: 'Schettino co.', descr
 r1 = p1.rewards.create!(title: 'T-shirt', value: 100, description: 'A t-shirt with logo', quantity: 50, project_id: 1)
 r1 = p1.rewards.create!(title: 'Space suit', value: 4000, description: 'A Completely new spacesuit with google glass', quantity: 10, project_id: 1)
 
+
 r2 = p2.rewards.create!(title: 'Free dinner', value: 50, description: 'A Dinner', quantity: 50, project_id: 1)
 r2 = p2.rewards.create!(title: 'Pool party', value: 4000, description: 'An incredible experience ', quantity: 10, project_id: 1)
-pl1 = r1.pledges.create!(amount: 100, user_id:2, project_id:1)
-pl2 = r1.pledges.create!(amount: 1000, user_id:2, project_id:1)
-pl3 = r1.pledges.create!(amount: 1000, user_id:3, project_id:2)
-pl4 = r1.pledges.create!(amount: 1000, user_id:4, project_id:2)
+# pl1 = r1.pledges.create!(amount: 100, user_id:2)
+# pl2 = r1.pledges.create!(amount: 1000, user_id:2)
+# pl3 = r2.pledges.create!(amount: 1000, user_id:3)
+# pl4 = r1.pledges.create!(amount: 1000, user_id:4)
+
+cat1 = Category.create!(name: 'Games')
+cat2 = Category.create!(name: 'Social')
+cat3 = Category.create!(name: 'Business')
+cat4 = Category.create!(name: 'Travel')
+cat5 = Category.create!(name: 'Sports')
+cat6 = Category.create!(name: 'Entertaiment')
+
