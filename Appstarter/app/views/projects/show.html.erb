@@ -17,7 +17,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @project.image %>
+  <%= image_tag @project.image %>
 </p>
 
 <p>
@@ -32,26 +32,26 @@
 
 <p>
   <strong>User:</strong>
-  <%= @project.user %>
+  <%= link_to @project.user.redirect_to() %>
 </p>
 
-<p>
-  <strong>Rewards:</strong>
+<!-- <p>
+  
   <%= @project.rewards %>
 </p>
-
+ -->
 <% @project.rewards.each do |reward| %>
 <ul>
+<strong>Rewards:</strong>
+  <li><%= link_to reward.title %></li>
 
-  <li><%= reward.title%></li>
-
-  <li>Pledge<%= reward.value%>or more </li>
+  <li>Pledge<%= reward.value %>or more </li>
 
   <li><strong>Quantity:</strong>Limited only<%= reward.quantity%>Avaible</li>
 
   <li><strong>Description:</strong><%= reward.description%></li>
 
-  <li> <strong>Delivery:</strong><%= reward.estimated_delivery%></li>
+  <li> <strong>Delivery:</strong><%= reward.estimated_delivery %></li>
 
 </ul>
 <% end %>
