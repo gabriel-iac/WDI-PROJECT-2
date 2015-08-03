@@ -8,7 +8,6 @@ class RewardsController < ApplicationController
 
   def create
     @reward = Reward.new(reward_params)
-
     respond_to do |format|
       if @reward.save
         format.html { redirect_to Project.find(@reward.project_id), notice: 'reward is successfully created.' }

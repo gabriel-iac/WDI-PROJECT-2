@@ -8,7 +8,7 @@ class PledgesController < ApplicationController
 
   def create
     @pledge = Pledge.new(pledge_params)
-
+    @pledge.user = current_user
     respond_to do |format|
       if @pledge.save
         format.html { redirect_to Project.find(@pledge.project_id), notice: 'pledge is successfully created.' }
