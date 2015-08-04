@@ -15,9 +15,13 @@
   <%= @project.description %>
 </p>
 
-<p>
+<!-- <p>
   <strong>Image:</strong>
-  <%= image_tag @project.image %>
+  <%= image_tag# @project.image %>
+</p> -->
+<p>
+  <b>Image:</b>
+  <%= image_tag @project.project_image.url %>
 </p>
 
 <p>

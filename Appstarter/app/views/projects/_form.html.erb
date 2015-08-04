@@ -23,9 +23,16 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
+  <h2>Link a Photo from the web</h2>
+   <div class="field">
     <%= f.label :image %><br>
-    <%= f.text_area :image %>
+    <%= f.text_area  :image %>
+  </div> 
+  
+  <h2>Upload Photo</h2>
+  <div class="field">
+    <%= f.label :project_image %><br />
+    <%= f.file_field :project_image %>
   </div>
   <div class="field">
     <%= f.label :deadline %><br>
