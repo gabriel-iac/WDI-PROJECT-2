@@ -7,11 +7,7 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
-  def add_new_comment
-      project = Project.find(params[:id])
-      project.comments << Project.new(params[:comment])
-      redirect_to :action => :show, :id => project
-    end
+ 
 
   # GET /projects/1
   # GET /projects/1.json
