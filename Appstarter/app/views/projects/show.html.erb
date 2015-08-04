@@ -40,10 +40,10 @@
   
   <%= @project.rewards %>
 </p>
- -->
+-->
 <% @project.rewards.each do |reward| %>
 <ul>
-<strong>Rewards:</strong>
+  <strong>Rewards:</strong>
   <li><%= link_to reward.title %></li>
 
   <li>Pledge<%= reward.value %>or more </li>
@@ -58,8 +58,8 @@
 <% end %>
 
 <% if @project.goal - @project.pledges.sum('amount') > 0 %>
-  <h2><%= @project.goal - @project.pledges.sum('amount') %> </h2>
-  <h4>needed for this project to be successful.</h4>
+<h2><%= @project.goal - @project.pledges.sum('amount') %> </h2>
+<h4>needed for this project to be successful.</h4>
 <% end -%>
 
 <h2><%= @project.pledges.sum('amount') %> on <%= @project.goal %> pledged</h2>
@@ -80,11 +80,29 @@
 <% end %>
 
 
-<%= form_tag "/projects/add_new_comment" do %>
-  <%= hidden_field_tag "id", @project.id %>
-  <%= text_area_tag "comment[comment]" %>
-  <%= submit_tag "project Comment" %>
+<% @project.comments.each do |comment| %>
+<ul>
+  <li><%= link_to comment.user.username, comment.user %> said:</li>
+
+    <li><%= comment.comment %></li>
+  </ul>
+</div>
 <% end %>
 
+<% if @current_user %> 
+<%= form_for @comment do |f| %>
+
+<div class="field">
+  <%= f.label :comment %><br>
+  <%= f.text_field :comment %>
+</div>
+
+<%= f.hidden_field :project_id %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<div class="actions"><%= f.submit "Add Comment"%></div>
+<% end %>
+<% else %>
+<h2>You have to be logged in to leave a comment</h2>
+<% end %>
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>

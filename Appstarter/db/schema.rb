@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150804122623) do
+ActiveRecord::Schema.define(version: 20150804123152) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,17 @@ ActiveRecord::Schema.define(version: 20150804122623) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  create_table "comments", force: :cascade do |t|
+    t.text     "comment"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["project_id"], name: "index_comments_on_project_id", using: :btree
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "pledges", force: :cascade do |t|
     t.integer  "amount"
@@ -75,6 +86,8 @@ ActiveRecord::Schema.define(version: 20150804122623) do
     t.string   "user_image"
   end
 
+  add_foreign_key "comments", "projects"
+  add_foreign_key "comments", "users"
   add_foreign_key "pledges", "projects"
   add_foreign_key "pledges", "users"
   add_foreign_key "projects", "categories"
