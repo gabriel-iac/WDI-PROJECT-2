@@ -77,6 +77,7 @@
 - ActsasCommentable
 - progressbar
 - carrierwave
+-Rmagick
 
 
 ------------------------
