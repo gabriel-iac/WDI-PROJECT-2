@@ -44,11 +44,12 @@
   </div>
   <div class="field">
     <%= f.label :category_id %><br>
-    <%= f.collection_select( :category_id, Category.all, :id, :name )%>
+    <%= f.collection_select(:category_id, Category.all, :id, :name )%>
   </div>
   
   <div class="field">
    <%= f.hidden_field :user_id %>
+   <%= f.hidden_field :category_id %>
   </div>
   <div class="actions">
 

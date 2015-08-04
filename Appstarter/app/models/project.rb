@@ -14,5 +14,5 @@ class Project < ActiveRecord::Base
   validates :goal, presence:true
   validates :goal, numericality:true
   validates :project_image, presence:true
-  validates :category, presence:true
+  # validates :category, presence:true
 end

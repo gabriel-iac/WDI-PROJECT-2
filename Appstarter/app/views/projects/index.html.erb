@@ -23,7 +23,7 @@
         <td><%= project.creator %></td>
         <td><%= project.description %></td>
         <!-- <td><%= image_tag project.image %></td> -->
-        <td><%= image_tag project.project_image.url %></td>
+        <td><%= image_tag project.project_image.display.url %></td>
         <td><%= project.deadline %></td>
         <td><%=number_to_currency project.goal %></td>
         <td><%= link_to project.user.try(:username), project.user %></td>
