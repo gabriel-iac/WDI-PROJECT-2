@@ -3,5 +3,7 @@ class Project < ActiveRecord::Base
   has_many :rewards
   has_many :pledges
   belongs_to :category
+  has_many :comments
   mount_uploader :project_image, ProjectImageUploader
+  acts_as_commentable
 end

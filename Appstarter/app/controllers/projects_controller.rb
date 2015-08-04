@@ -7,11 +7,18 @@ class ProjectsController < ApplicationController
     @projects = Project.all
   end
 
+  def add_new_comment
+      project = Project.find(params[:id])
+      project.comments << Project.new(params[:comment])
+      redirect_to :action => :show, :id => project
+    end
+
   # GET /projects/1
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
     @pledge = Pledge.new( :project => @project )
+    
   end
 
   # GET /projects/new
@@ -38,6 +45,7 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+
   end
 
   # PATCH/PUT /projects/1

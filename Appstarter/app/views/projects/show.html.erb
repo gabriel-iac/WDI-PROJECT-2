@@ -15,10 +15,7 @@
   <%= @project.description %>
 </p>
 
-<!-- <p>
-  <strong>Image:</strong>
-  <%= image_tag# @project.image %>
-</p> -->
+
 <p>
   <b>Image:</b>
   <%= image_tag @project.project_image.url %>
@@ -80,6 +77,13 @@
 
 <%= f.hidden_field :project_id %>
 <div class="actions"><%= f.submit "Pledge"%></div>
+<% end %>
+
+
+<%= form_tag "/projects/add_new_comment" do %>
+  <%= hidden_field_tag "id", project.id %>
+  <%= text_area_tag "comment[comment]" %>
+  <%= submit_tag "project Comment" %>
 <% end %>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
