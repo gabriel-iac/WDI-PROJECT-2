@@ -81,7 +81,7 @@
 
 
 <%= form_tag "/projects/add_new_comment" do %>
-  <%= hidden_field_tag "id", project.id %>
+  <%= hidden_field_tag "id", @project.id %>
   <%= text_area_tag "comment[comment]" %>
   <%= submit_tag "project Comment" %>
 <% end %>
