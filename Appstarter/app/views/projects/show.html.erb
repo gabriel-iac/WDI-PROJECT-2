@@ -64,11 +64,14 @@
 
 <h2><%= @project.pledges.sum('amount') %> on <%= @project.goal %> pledged</h2>
 <h4>towards a goal of <%= @project.goal %>.</h4>
+
 <% if @project.user == current_user %>
 <div class="Add reward">
   <%= link_to "Add Rewad", new_reward_path %>
 </div>
 <% end -%>
+
+<% if logged_in? %> 
 <%= form_for @pledge do |f| %>
 <div class="field">
   <%= f.label :amount %><br>
@@ -78,18 +81,21 @@
 <%= f.hidden_field :project_id %>
 <div class="actions"><%= f.submit "Pledge"%></div>
 <% end %>
+<% else %>
+<p>You need to be logged in to make a pledge</p>
+<% end %>
 
 
 <% @project.comments.each do |comment| %>
 <ul>
   <li><%= link_to comment.user.username, comment.user %> said:</li>
 
-    <li><%= comment.comment %></li>
-  </ul>
+  <li><%= comment.comment %></li>
+</ul>
 </div>
 <% end %>
 
-<% if @current_user %> 
+<% if logged_in? %> 
 <%= form_for @comment do |f| %>
 
 <div class="field">
@@ -104,5 +110,7 @@
 <% else %>
 <h2>You have to be logged in to leave a comment</h2>
 <% end %>
+<% if @user == current_user %> 
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
+<% end %>

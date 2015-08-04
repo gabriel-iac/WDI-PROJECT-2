@@ -6,39 +6,43 @@
 # t.integer  "quantity"
 # t.date     "estimated_delivery"
 # t.integer  "project_id" -->
-
-  <%= form_for @reward do |f| %>
-    <% if @reward.errors.any? %>
-      <div class="error_messages">
-        <h2>Form is invalid</h2>
-        <ul>
-          <% for message in @reward.errors.full_messages %>
-            <li><%= message %></li>
-          <% end %>
-        </ul>
-      </div>
+<% if current_user %>
+<%= form_for @reward do |f| %>
+<% if @reward.errors.any? %>
+<div class="error_messages">
+  <h2>Form is invalid</h2>
+  <ul>
+    <% for message in @reward.errors.full_messages %>
+    <li><%= message %></li>
     <% end %>
+  </ul>
+</div>
+<% end %>
 
-    <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </div>
-    <div class="field">
-      <%= f.label :description %><br>
-      <%= f.text_field :description %>
-    </div>
-    <div class="field">
-      <%= f.label :quantity %><br>
-      <%= f.text_field :quantity %>
-    </div>
-    <div class="field">
-      <%= f.label :estimated_delivery %><br>
-      <%= f.date_field :estimated_delivery %>
-    </div>
-    <div class="field">
-      <%= f.label :project_id %>
-      <%= f.collection_select( :project_id, current_user.projects, :id, :name )%>
-    </div>
- 
-    <div class="actions"><%= f.submit %></div>
-  <% end %>
+<div class="field">
+  <%= f.label :title %><br>
+  <%= f.text_field :title %>
+</div>
+<div class="field">
+  <%= f.label :description %><br>
+  <%= f.text_field :description %>
+</div>
+<div class="field">
+  <%= f.label :quantity %><br>
+  <%= f.text_field :quantity %>
+</div>
+<div class="field">
+  <%= f.label :estimated_delivery %><br>
+  <%= f.date_field :estimated_delivery %>
+</div>
+
+<div class="field">
+  <%= f.label :project_id %>
+  <%= f.collection_select( :project_id, current_user.projects, :id, :name )%>
+</div>
+
+<div class="actions"><%= f.submit %></div>
+<% end %>
+<% else %>
+<p>you need to be logged in to add a reward</p>
+<% end %>

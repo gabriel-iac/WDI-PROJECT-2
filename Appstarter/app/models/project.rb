@@ -1,5 +1,5 @@
 class Project < ActiveRecord::Base
-  before_action :authenticate, only: [:edit, :destroy, :update, :new, :create]
+  
   belongs_to :user
   has_many :rewards
   has_many :pledges
