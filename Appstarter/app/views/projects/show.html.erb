@@ -56,19 +56,24 @@
 </ul>
 <% end %>
 
-<% if @project.goal - @project.pledges.sum('amount') > 0 -%>
+<% if @project.goal - @project.pledges.sum('amount') > 0 %>
   <h2><%= @project.goal - @project.pledges.sum('amount') %> </h2>
   <h4>needed for this project to be successful.</h4>
 <% end -%>
 
 <h2><%= @project.pledges.sum('amount') %> on <%= @project.goal %> pledged</h2>
 <h4>towards a goal of <%= @project.goal %>.</h4>
-
+<% if @project.user == current_user %>
+<div class="Add reward">
+  <%= link_to "Add Rewad", new_reward_path %>
+</div>
+<% end -%>
 <%= form_for @pledge do |f| %>
 <div class="field">
   <%= f.label :amount %><br>
   <%= f.text_field :amount %>
 </div>
+
 <%= f.hidden_field :project_id %>
 <div class="actions"><%= f.submit "Pledge"%></div>
 <% end %>
