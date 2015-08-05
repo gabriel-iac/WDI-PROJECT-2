@@ -7,18 +7,17 @@ class ProjectsController < ApplicationController
   def index
     @projects = Project.all
     if params[:tag]
-        @projects = Project.tagged_with(params[:tag])
-      else
-        @projects = Project.all
-      end
+      @projects = Project.tagged_with(params[:tag])
+    else
+      @projects = Project.all
+    end
   end
 
   def search
     @q = Project.search(params[:q])
-        @projects = @q.result(distinct: true)
-      
-      render :index
-    end
+    @projects = @q.result(distinct: true)
+    render :index
+  end
 
   # GET /projects/1
   # GET /projects/1.json

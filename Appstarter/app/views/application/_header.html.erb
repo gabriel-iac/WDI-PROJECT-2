@@ -24,6 +24,7 @@
       <li><%= search_form_for @q, url: search_projects_path, html: { method: :post }  do |f| %>
           <%= f.label :name_cont %>
           <%= f.text_field :name_cont %>
+          
           <%= f.submit %>
         <% end %></li>
     </ul>

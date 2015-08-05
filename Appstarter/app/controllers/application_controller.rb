@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :set_global_search_variable
 
   def set_global_search_variable
-    @q = Project.search(params[:q])
+    @q = Project.search(params[:q]) 
   end
 
   protect_from_forgery with: :exception
