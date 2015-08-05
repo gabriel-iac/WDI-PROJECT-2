@@ -21,5 +21,10 @@
       <li><%= link_to " New Reward", new_reward_path %></li>
       
     </ul>
+   
+    <%= search_form_for @q do |f| %>
+    <%= f.text_field :name_cont, :placeholder => "Search" %>
+    <div class="actions"><%= f.submit "Search" %></div>
+    <% end %>
   </nav>
 </header>

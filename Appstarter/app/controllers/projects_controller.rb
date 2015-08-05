@@ -6,15 +6,18 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
+    @q = Project.ransack(params[:q])
+    @projects = @q.result(distinct: true)
   end
 
- 
+  
 
   # GET /projects/1
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
     @pledge = Pledge.new( :project => @project )
+    @category = Category.new( :project => @project )
     @comment = Comment.new( :project => @project )
   end
 
@@ -79,4 +82,4 @@ class ProjectsController < ApplicationController
     def project_params
       params.require(:project).permit(:name, :creator, :description, :image, :deadline, :goal, :user_id, :project_image)
     end
-end
+  end
