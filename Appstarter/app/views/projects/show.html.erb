@@ -1,3 +1,9 @@
+
+<div class="row">
+  
+  <div class="medilargeum-12 columns">10 columns</div>
+  <div class="medium-10 columns">10 columns</div>
+  <div class="medium-2 columns">2 columns</div>
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -8,11 +14,6 @@
 <p>
   <strong>Creator:</strong>
   <%= @project.creator %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @project.description %>
 </p>
 
 
@@ -42,7 +43,10 @@
   <strong>User:</strong>
   <%= link_to @project.user.try(:username), @project.user  %>
 </p>
-
+<p>
+  <strong>Description:</strong>
+  <%= @project.description %>
+</p>
 <!-- <p>
   
   <%= @project.rewards %>
@@ -121,3 +125,4 @@
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
 <% end %>
+</div>

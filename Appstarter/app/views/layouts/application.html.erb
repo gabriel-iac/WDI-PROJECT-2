@@ -16,8 +16,11 @@
 <body>
   
   <%= render 'header' %>
-  <%= render 'slider' unless @disable_slider %>
-  <main class="row">
+
+  <% if @disable_slider %>
+  <%= render 'slider' %>
+  <% end %>
+  <main >
   <%= yield %>
 </main>
 </body>
