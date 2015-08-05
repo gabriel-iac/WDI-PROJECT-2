@@ -2,8 +2,12 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
 
-
+  before_filter :disable_slider, only: [:home]
   before_filter :set_global_search_variable
+
+  def disable_slider
+    @disable_slider = true
+  end
 
   def set_global_search_variable
     @q = Project.search(params[:q]) 
@@ -41,7 +45,5 @@ class ApplicationController < ActionController::Base
   end
 end
 
-def disable_nav
-  @disable_slider = true
-end
+
 end
