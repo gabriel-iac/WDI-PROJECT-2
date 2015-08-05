@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private,:tag_list
+  private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
@@ -70,6 +70,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :username, :password, :bio, :avatar,:password_confirmation, :user_image)
+      params.require(:user).permit(:name, :username, :password, :bio, :avatar,:password_confirmation, :user_image, :tag_list)
     end
 end
