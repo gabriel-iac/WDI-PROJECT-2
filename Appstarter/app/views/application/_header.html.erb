@@ -20,11 +20,13 @@
       <li><%= link_to "Reward", rewards_path %></li>
       <li><%= link_to " New Reward", new_reward_path %></li>
       
+
+      <li><%= search_form_for @q, url: search_projects_path, html: { method: :post }  do |f| %>
+          <%= f.label :name_cont %>
+          <%= f.text_field :name_cont %>
+          <%= f.submit %>
+        <% end %></li>
     </ul>
-   
-    <%= search_form_for @q do |f| %>
-    <%= f.text_field :name_cont, :placeholder => "Search" %>
-    <div class="actions"><%= f.submit "Search" %></div>
-    <% end %>
+ 
   </nav>
 </header>

@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :projects do
+      collection do
+        match 'search' => 'projects#search', via: [:get, :post], as: :search
+      end
+    end
   resources :projects
   resources :users
   resources :rewards

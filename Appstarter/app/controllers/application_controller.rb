@@ -1,11 +1,20 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
+
+
+  before_filter :set_global_search_variable
+
+  def set_global_search_variable
+    @q = Project.search(params[:q])
+  end
+
   protect_from_forgery with: :exception
 
   helper_method :current_user
   helper_method :logged_in?
   helper_method :authenticate
+
 
   def current_user
     if session[:user_id] 

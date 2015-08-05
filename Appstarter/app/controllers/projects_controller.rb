@@ -6,11 +6,16 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-    @q = Project.ransack(params[:q])
-    @projects = @q.result(distinct: true)
+    
   end
 
-  
+  def search
+    @q = Project.search(params[:q])
+        @projects = @q.result(distinct: true)
+      
+      render :index
+    end
+
 
   # GET /projects/1
   # GET /projects/1.json
