@@ -9,19 +9,26 @@ u2 = User.create!(name: 'Chuck Norris', username: 'god', password: '123', passwo
 u3 = User.create!(name: 'Vittorio Sgarbi', username: 'capra', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'http://www.trapanioggi.it/wp-content/uploads/2014/05/Sgarbi_capra.jpg')
 u4 = User.create!(name: 'Spidermn', username: 'spider', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'http://s1.static.gotsmile.net/images/2011/08/22/black-spiderman-fail_13140071484.jpg')
 
+cat1 = Category.create!(name: 'Games')
+cat2 = Category.create!(name: 'Social')
+cat3 = Category.create!(name: 'Business')
+cat4 = Category.create!(name: 'Travel')
+cat5 = Category.create!(name: 'Sports')
+cat6 = Category.create!(name: 'Entertaiment')
+
 # projects(id: integer, name: string, creator: string, description: text, image: text, deadline: date, goal: float, user_id: integer, created_at: datetime, updated_at: datetime)
 
 p1 = u1.projects.create!(name: 'Moon landing', creator: 'Amstrong co.', description: 'Lorem ipsum dolor esset', image: 'https://ksr-ugc.imgix.net/projects/1950682/photo-original.jpg?v=1435699216&w=218&h=162&fit=crop&auto=format&q=92&s=8fd69b8ad600741bc99f0d61e9a444a6', goal: 100000000000, user_id: 1, category_id: 3)
 
-p2 = u2.projects.create!(name: 'Everest Cruise', creator: 'Schettino co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 2, category_id:2)
+p2 = u3.projects.create!(name: 'Everest Cruise', creator: 'Schettino co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 2, category_id:2)
 
-p3 = u2.projects.create!(name: 'Funny pictures', creator: 'just gifs co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 3, category_id:1)
+p3 = u4.projects.create!(name: 'Funny pictures', creator: 'just gifs co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 3, category_id:1)
 
 p4 = u2.projects.create!(name: 'Memory', creator: 'Memo co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 1, category_id:6)
 
-p5 = u2.projects.create!(name: 'Fun with flags', creator: 'Cooper co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 4, category_id:5)
+p5 = u1.projects.create!(name: 'Fun with flags', creator: 'Cooper co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 4, category_id:5)
 
-p6 = u2.projects.create!(name: 'Foosball', creator: 'Italians rules co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 4, category_id:4)
+p6 = u3.projects.create!(name: 'Foosball', creator: 'Italians rules co.', description: 'Lorem ipsum dolor esset', image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 300000000, user_id: 4, category_id:4)
 
 
 
@@ -51,12 +58,7 @@ r6 = p6.rewards.create!(title: 'Pool party', value: 4000, description: 'An incre
 # pl3 = r2.pledges.create!(amount: 1000, user_id:3)
 # pl4 = r1.pledges.create!(amount: 1000, user_id:4)
 
-cat1 = Category.create!(name: 'Games')
-cat2 = Category.create!(name: 'Social')
-cat3 = Category.create!(name: 'Business')
-cat4 = Category.create!(name: 'Travel')
-cat5 = Category.create!(name: 'Sports')
-cat6 = Category.create!(name: 'Entertaiment')
+
 
 com1 = Comment.create!(comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed rutrum ante. Phasellus in neque ante. Sed varius sollicitudin tortor, ut facilisis lorem condimentum et. Aenean neque arcu, posuere a nulla ut, hendrerit commodo nulla. Donec elementum blandit lorem, quis eleifend enim iaculis sed. Aenean vestibulum orci ut velit placerat, id placerat ex pulvinar. Sed id pellentesque ex, ut molestie nisl. Nam et malesuada lorem. Quisque metus felis, auctor non justo sed, euismod accumsan sem. Phasellus ullamcorper nisi porta bibendum consectetur. Mauris at ultrices leo." , project_id:1, user_id:2 )
 com2 = Comment.create!(comment: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam sed rutrum ante. Phasellus in neque ante. Sed varius sollicitudin tortor, ut facilisis lorem condimentum et. Aenean neque arcu, posuere a nulla ut, hendrerit commodo nulla. Donec elementum blandit lorem, quis eleifend enim iaculis sed. Aenean vestibulum orci ut velit placerat, id placerat ex pulvinar. Sed id pellentesque ex, ut molestie nisl. Nam et malesuada lorem. Quisque metus felis, auctor non justo sed, euismod accumsan sem. Phasellus ullamcorper nisi porta bibendum consectetur. Mauris at ultrices leo." , project_id:1, user_id:3 )

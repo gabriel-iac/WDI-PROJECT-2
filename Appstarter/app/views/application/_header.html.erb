@@ -1,33 +1,45 @@
 <header>
-  <% if current_user %>
-  <p>Hello, <%= current_user.username %></p>
-  <%= link_to "logout", logout_path, method: :delete, data: {confirm: "are you sure?"} %>
-  <% else %>
-  <%= link_to "please login", login_path %>
-  <% end %>
-
   <% flash.each do |name, message| %>
   <div class="flash-message flash-message-<%= name %>">
     <%= message %>
   </div>
   <% end %>
-  <nav>
-    <ul>
-      <li><%= link_to "Users", users_path %></li>
-      <li><%= link_to "Add User", new_user_path %></li>
-      <li><%= link_to "Projects", projects_path %></li>
-      <li><%= link_to " New Project", new_project_path %></li>
-      <li><%= link_to "Reward", rewards_path %></li>
-      <li><%= link_to " New Reward", new_reward_path %></li>
-      
+  <div class="contain-to-grid sticky">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#">My Site</a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
 
-      <li><%= search_form_for @q, url: search_projects_path, html: { method: :post }  do |f| %>
-          <%= f.label :name_cont %>
-          <%= f.text_field :name_cont %>
-          
-          <%= f.submit %>
-        <% end %></li>
-    </ul>
- 
+      <section class="top-bar-section">
+        <!-- Right Nav Section -->
+        <ul class="right">
+         <% if current_user %>
+         <p>Hello, <%= current_user.username %></p>
+         <li><%= link_to "logout", logout_path, method: :delete, data: {confirm: "are you sure?"} %>
+         </li>
+         <% else %>
+         <li><%= link_to "please login", login_path %></li>
+         <% end %>
+         <li><%= search_form_for @q, url: search_projects_path, html: { method: :post }  do |f| %>
+           <%= f.label :name_cont %>
+           <%= f.text_field :name_cont %>
+           
+           <%= f.submit %>
+           <% end %>
+         </li>
+       </ul>
+
+       <!-- Left Nav Section -->
+       <ul class="left">
+        <li><a href="#">Left Nav Button</a></li>
+        <li><%= link_to "Discover", projects_path %></li>
+        <li><%= link_to " New Project", new_project_path %></li>
+      </ul>
+    </section>
   </nav>
+</div>
 </header>
