@@ -1,9 +1,5 @@
 <header>
-  <% flash.each do |name, message| %>
-  <div class="flash-message flash-message-<%= name %>">
-    <%= message %>
-  </div>
-  <% end %>
+ 
   <div class="fullWidth sticky">
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
@@ -18,17 +14,17 @@
         <!-- Right Nav Section -->
         <ul class="right">
          <% if current_user %>
-         <li><%= current_user.username %></li>
+         <li class="user-profile"><%= image_tag current_user.user_image.login.url %><%=link_to current_user.username, current_user %></li>
          <li><%= link_to "logout", logout_path, method: :delete, data: {confirm: "are you sure?"} %>
          </li>
          <% else %>
-         <li><%= link_to "please login", login_path %></li>
+         <li><%= link_to "Login", login_path %></li>
          <% end %>
          <li class="nav-search"><%= search_form_for @q, url: search_projects_path, html: { method: :post }  do |f| %>
            <%= f.label :name_cont, 'Search' %>
            <%= f.text_field :name_cont %>
            
-           <%= f.submit %>
+           <%= f.submit class: 'button' %>
            <% end %>
          </li>
        </ul>
@@ -41,5 +37,10 @@
       </ul>
     </section>
   </nav>
+  <% flash.each do |name, message| %>
+  <div class="flash-message flash-message-<%= name %>">
+    <%= message %>
+  </div>
+  <% end %>
 </div>
 </header>

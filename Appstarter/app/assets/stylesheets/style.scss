@@ -1,18 +1,35 @@
 nav {
+  color: #f2f2f2;
   li{
     width: 130px;
+
   }
-  .nav-search{
-    width: 500px;
+  .user-profile {
+   padding: 0;
+   margin: 0;
+   width: 110px;
+
+   img{
     float: left;
-  }
-  .project_search input{
-    margin: 0 5px;
-    width: 150px;
-    float: left;
-  }
-  label{
-    width: 100px;
-    float: left;
-  }
+    margin-right: 10px;
+
+   }
+ }
 }
+.nav-search{
+  width: 500px;
+  float: left;
+  @include border-radius(5px);
+}
+.project_search input{
+  margin: 0 5px;
+  width: 150px;
+  float: left;
+}
+label{
+  width: 100px;
+  float: left;
+  line-height: 2.8125rem;
+  color: #f2f2f2;
+}
+
