@@ -25,7 +25,10 @@
   <strong>Deadline:</strong>
   <%= @project.deadline %>
 </p>
-
+<p>
+  <strong>Tags:</strong>
+  <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+</p>
 <p>
   <strong>Goal:</strong>
   <%= @project.goal %>

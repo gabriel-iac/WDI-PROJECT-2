@@ -6,7 +6,11 @@ class ProjectsController < ApplicationController
   # GET /projects.json
   def index
     @projects = Project.all
-    
+    if params[:tag]
+        @projects = Project.tagged_with(params[:tag])
+      else
+        @projects = Project.all
+      end
   end
 
   def search
@@ -21,7 +25,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @pledge = Pledge.new( :project => @project )
-    @category = Category.new( :project => @project )
+    
     @comment = Comment.new( :project => @project )
   end
 
@@ -84,6 +88,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :creator, :description, :image, :deadline, :goal, :user_id, :project_image)
+      params.require(:project).permit(:name, :creator, :description, :image, :deadline, :goal, :user_id, :project_image, :tag_list)
     end
   end

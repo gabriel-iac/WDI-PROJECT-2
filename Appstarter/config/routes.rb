@@ -13,6 +13,7 @@ Rails.application.routes.draw do
  resources :comments
  get "/login", to: "sessions#new"
  delete "/logout", to: "sessions#destroy"
+ get 'tags/:tag', to: 'projects#index', as: :tag
  
  root 'users#index'
 end

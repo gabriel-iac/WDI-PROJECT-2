@@ -1,4 +1,7 @@
 class CategoriesController < ApplicationController
+  def index
+    @category = Pledge.all
+  end
   def new
     @category = category.new
   end

@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   belongs_to :category
   has_many :comments
   mount_uploader :project_image, ProjectImageUploader
-
+ acts_as_taggable
 
   validates :name, presence:true
   validates :description, presence:true

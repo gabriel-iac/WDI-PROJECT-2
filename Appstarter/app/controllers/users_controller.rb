@@ -62,7 +62,7 @@ class UsersController < ApplicationController
     end
   end
 
-  private
+  private,:tag_list
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
