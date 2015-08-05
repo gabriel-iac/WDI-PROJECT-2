@@ -1,27 +1,27 @@
 header{
 
-nav {
-  color: #f2f2f2;
-  &.top-bar{
-    height: 3.8125rem;
-    li a{
-      line-height: $nav-line-height;
+  nav {
+    color: #f2f2f2;
+    &.top-bar{
+      height: 3.8125rem;
+      li a{
+        line-height: $nav-line-height;
+      }
+    }
+    li{
+      width: 130px;
+    }
+    &.user-profile {
+     padding: 0;
+     margin: 0;
+     width: 110px;
+
+     img{
+      float: left;
+      margin-right: 10px;
+
     }
   }
-  li{
-    width: 130px;
-  }
-  &.user-profile {
-   padding: 0;
-   margin: 0;
-   width: 110px;
-
-   img{
-    float: left;
-    margin-right: 10px;
-
-   }
- }
 }
 .nav-search{
   width: 500px;
@@ -47,7 +47,7 @@ label{
 label{
   width: 100px;
   float: left;
-    color: #f2f2f2;
+  color: #f2f2f2;
 }
 margin-bottom:10px; 
 }
