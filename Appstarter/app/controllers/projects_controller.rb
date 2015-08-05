@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
 
   def search
     @q = Project.search(params[:q])
+    
     @projects = @q.result(distinct: true)
     render :index
   end
