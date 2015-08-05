@@ -16,7 +16,7 @@
 <body>
   
   <%= render 'header' %>
-  <%= render 'slider' %>
+  <%= render 'slider', unless @disable_slider %>
   <main class="row">
   <%= yield %>
 </main>

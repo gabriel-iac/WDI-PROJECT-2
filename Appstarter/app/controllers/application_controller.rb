@@ -40,4 +40,8 @@ class ApplicationController < ActionController::Base
     end
   end
 end
+
+def disable_nav
+  @disable_slider = true
+end
 end

@@ -1,4 +1,5 @@
 class ProjectsController < ApplicationController
+  before_filter :disable_slider, only: [:home]
   before_action :authenticate, only: [:edit, :destroy, :update,:new, :create]
   before_action :set_project, only: [:show, :edit, :update, :destroy]
 
@@ -15,7 +16,7 @@ class ProjectsController < ApplicationController
 
   def search
     @q = Project.search(params[:q])
-    
+
     @projects = @q.result(distinct: true)
     render :index
   end
