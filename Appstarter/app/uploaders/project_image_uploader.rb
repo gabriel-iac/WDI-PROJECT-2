@@ -36,7 +36,7 @@ class ProjectImageUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [400, 300]
   end
   version :full do
-    process :resize_to_fill => [600, 600]
+    process :resize_to_fill => [681, 511]
   end
 
 

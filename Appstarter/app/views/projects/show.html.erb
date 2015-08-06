@@ -1,20 +1,21 @@
 <div class="row">
 <div class="medium-12 columns">
 <p>
-  <strong>Name:</strong>
-  <%= @project.name %>
+  <strong>
+  <h4><%=link_to @project.name, @project %></h4>
+  </strong>
   <p>
-    <strong>Creator:</strong>
+    
     <%= @project.creator %>
   </p>
 </p>
 
 </div>
-  <div class="medium-9 columns">
+  <div class="medium-8 columns">
     
     <p>
-      <b>Image:</b>
-      <%= image_tag @project.project_image.display.url %>
+      
+      <%= image_tag @project.project_image.full.url %>
     </p>
     <p>
       <strong>Deadline:</strong>
@@ -25,7 +26,7 @@
       <%= link_to @project.user.try(:username), @project.user  %>
     </p>
   </div>
-  <div class="medium-3 columns">
+  <div class="medium-4 columns p-right-column">
 
    
 
@@ -41,29 +42,29 @@
     </div>
 
     <%= f.hidden_field :project_id %>
-    <div class="actions"><%= f.submit "Pledge"%></div>
+    <div class="actions"><%= f.submit "Pledge", class: "button"%></div>
     <% end %>
     <% else %>
     <p>You need to be logged in to make a pledge</p>
     <% end %>
     <% if @project.goal - @project.pledges.sum('amount') > 0 %>
-    <p><%= @project.goal - @project.pledges.sum('amount') %> </p>
-    <p>needed for this project to be successful.</p>
+    <p><%= @project.goal - @project.pledges.sum('amount') %> 
+    Needed for this project to be successful.</p>
     <% end -%>
 
-    <p><%= @project.pledges.sum('amount') %> pledged</p>
-    <p>towards a goal of <%= @project.goal %>.</p>
+    <p><%= @project.pledges.sum('amount') %> 
+   to<%= @project.goal %> Pledged.</p>
   </div>
   <p id="notice"><%= notice %></p>
 </div>
 <div class="row">
-  <div class="medium-9 columns">
+  <div class="medium-8 columns">
     <p>
       <strong>Description:</strong>
       <%= @project.description %>
     </p>
   </div>
-  <div class="medium-3 columns">
+  <div class="medium-4 columns">
   <% @project.rewards.each do |reward| %>
   <ul>
     <strong>Rewards:</strong>
@@ -89,6 +90,7 @@
   <% end -%>
   </div>
 </div>
+<div class="row">
 <p>
   <strong>Tags:</strong>
   <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
@@ -117,7 +119,6 @@
 
   <li><%= comment.comment %></li>
 </ul>
-</div>
 <% end %>
 
 <% if logged_in? %> 
@@ -130,7 +131,7 @@
 
 <%= f.hidden_field :project_id %>
 <%= f.hidden_field :user_id, value: current_user.id %>
-<div class="actions"><%= f.submit "Add Comment"%></div>
+<div class="actions"><%= f.submit "Add Comment", class: "button"%></div>
 <% end %>
 <% else %>
 <h2>You have to be logged in to leave a comment</h2>
@@ -139,3 +140,4 @@
 <%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
 <% end %>
+</div>

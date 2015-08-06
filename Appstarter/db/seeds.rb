@@ -11,10 +11,10 @@ u4 = User.create!(name: 'Spidermn', username: 'spider', password: '123', passwor
 
 cat1 = Category.create!(name: 'Games')
 cat2 = Category.create!(name: 'Social')
-cat3 = Category.create!(name: 'Business')
-cat4 = Category.create!(name: 'Travel')
-cat5 = Category.create!(name: 'Sports')
-cat6 = Category.create!(name: 'Entertaiment')
+cat3 = Category.create!(name: 'Small Business')
+cat4 = Category.create!(name: 'Tech')
+cat5 = Category.create!(name: 'Entertainment')
+cat6 = Category.create!(name: 'Music')
 
 # projects(id: integer, name: string, creator: string, description: text, image: text, deadline: date, goal: float, user_id: integer, created_at: datetime, updated_at: datetime)
 

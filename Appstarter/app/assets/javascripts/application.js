@@ -9,7 +9,7 @@
 //
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
-//
+//@import url(http://fonts.googleapis.com/css?family=Oswald);
 //= require jquery
 //= require jquery_ujs
 //= require foundation
