@@ -54,6 +54,7 @@
       <h2 class="subheader">User Comments</h2>
       <% @user.comments.each do |comment| %>
       <ul class="panel no-bullet">
+      <li>Project <p><%=link_to comment.project.name, comment.project %></p></li>
         <li><%= link_to comment.user.username, comment.user %> said:</li>
         <li><p><%= comment.comment %></p></li>
       </ul>
