@@ -8,9 +8,10 @@
      <%= image_tag project.project_image.display.url %>
      <div class="project-content">
        <h4><%=link_to project.name, project %></h4>
-       <h7 class="subheader"><em><%= project.creator %></em></h7>
-       <h6><%=link_to project.category.name, project.category %></h6>
+       <em><h7 class="subheader"><%= project.creator %></h7></em>
+       <p><em><%=link_to project.category.name, project.category %></em></p>
        <p><%= project.description.first(200) %>...</p>
+
        <p><%=number_to_currency project.pledges.sum('amount') %> 
         to <%=number_to_currency project.goal %> pledged</p>
       </div>
