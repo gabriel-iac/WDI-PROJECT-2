@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   before_filter :disable_slider, only: [:home]
   before_filter :set_global_search_variable
-
+  
   def disable_slider
     @disable_slider = true
   end
