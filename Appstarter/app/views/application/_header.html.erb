@@ -1,15 +1,12 @@
 <header>
- 
   <div class="fullWidth sticky">
     <nav class="top-bar" data-topbar role="navigation">
       <ul class="title-area">
         <li class="name">
-          <h1><a href="/home">Appstarter</a></h1>
+          <h1><%= link_to "Appstarter", root_path %></h1>
         </li>
-        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
         <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
-
       <section class="top-bar-section">
         <!-- Right Nav Section -->
         <ul class="right">
@@ -26,7 +23,6 @@
          <li class="nav-search"><%= search_form_for @q, url: search_projects_path, html: { method: :post }  do |f| %>
            <%= f.label :name_cont, 'Search' %>
            <%= f.text_field :name_cont %>
-           
            <%= f.submit class: 'button' %>
            <% end %>
          </li>
@@ -35,7 +31,6 @@
        <!-- Left Nav Section -->
        <ul class="left">
         <li><%= link_to "Discover", projects_path %></li>
-        
         <li><%= link_to " New Project", new_project_path %></li>
       </ul>
     </section>

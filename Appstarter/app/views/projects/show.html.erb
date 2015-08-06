@@ -1,157 +1,158 @@
 <div class="row">
-<ul class="tabs" data-tab role="tablist">
-  <li class="tab-title active" role="presentation"><a href="#panel2-1" role="tab" tabindex="0" aria-selected="true" aria-controls="panel2-1">Project</a></li>
-  <li class="tab-title" role="presentation"><a href="#panel2-2" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-2">Comments</a></li>
-</ul>
-
-<div class="tabs-content">
-  <section role="tabpanel" aria-hidden="false" class="content active" id="panel2-1">
-    
-    <div class="row">
-      <div class="medium-12 columns center">
-        <p >
-          <strong>
-            <h2><%=link_to @project.name, @project %></h4>
-          </strong>
-          <p>
-
-          <h6 class="subheader"><em>By <%= @project.creator %></em></h6>
-          </p>
-        </p>
-
-      </div>
-      <div class="medium-8 columns">
-
-        <p>
-
-          <%= image_tag @project.project_image.full.url %>
-        </p>
-       
-        <p>
-          <strong>User:</strong>
-          <%= link_to @project.user.try(:username), @project.user  %>
-        </p>
-      </div>
-      <div class="medium-4 columns p-right-column">
-
-
-      <h4 class="subheader">
-        <strong>Deadline:</strong>
-        <%= @project.deadline %>  </h4>
-        <h4 class="subheader">Days left <strong><%= (@project.deadline - Time.now.to_date).to_i %></strong></h4>
-     
-        <p>
-          <strong>Goal:</strong>
-          <%=number_to_currency @project.goal %>
-        </p>
-        <% if logged_in? %> 
-        <%= form_for @pledge do |f| %>
-        <div class="field">
-          <%= f.label :amount %><br>
-          <%= f.text_field :amount %>
-        </div>
-
-        <%= f.hidden_field :project_id %>
-        <div class="actions"><%= f.submit "Pledge", class: "button"%></div>
-        <% end %>
-        <% else %>
-        <p>You need to be logged in to make a pledge</p>
-        <% end %>
-        <% if @project.goal - @project.pledges.sum('amount') > 0 %>
-        <p><%=number_to_currency @project.goal - @project.pledges.sum('amount') %> 
-          Needed for this project to be successful.</p>
-          <% end -%>
-
-          <p><%=number_to_currency @project.pledges.sum('amount') %> 
-           to<%=number_to_currency @project.goal %> Pledged.</p>
-         </div>
-         <p id="notice"><%= notice %></p>
-       </div>
-       <div class="row">
-        <div class="medium-8 columns">
-          <p>
-            <strong>Description:</strong>
-            <em><%= @project.description %></em>
-          </p>
-        </div>
-        <div class="medium-4 columns p-right-column">
-        <h4>Rewards:</h4>
-          <% @project.rewards.each do |reward| %>
-          <ul class="no-bullet">
-            
-            <li><%= link_to reward.title %></li>
-
-            <li><strong>Pledge:</strong> <%=number_to_currency reward.value %> or more </li>
-
-            <li><strong>Quantity:</strong>Limited only: <strong><%= reward.quantity%></strong> Avaible</li>
-
-            <li><strong>Description:</strong> <%= reward.description%></li>
-
-            <li> <strong>Delivery:</strong> <%= reward.estimated_delivery %></li>
-
-          </ul>
-          <% end %>
-
-
-
-          <% if @project.user == current_user %>
-          <div class="Add reward">
-            <%= link_to "Add Rewad", new_reward_path %>
-          </div>
-          <% end -%>
-        </div>
-      </div>
-      <div class="row">
-        <p>
-          <strong>Tags:</strong>
-          <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-        </p>
-
-        <p>
-          <strong>Category:</strong>
-          <%= @project.category.name %>
-        </p>
-
-
-    <% if @project.user == current_user %> 
-    <%= link_to 'Edit', edit_project_path(@project), class: "button" %> |
-    <%= link_to 'Back', projects_path,  class: "button" %>
-    <% end %>
-    </div>
-  </section>
-  <section role="tabpanel" aria-hidden="true" class="content" id="panel2-2">
-    
-    <div class="row">
-    <h2 class="subheader">Comments</h2>
-    <% @project.comments.each do |comment| %>
-    <ul class="panel no-bullet">
-      <li><%= link_to comment.user.username, comment.user %> said:</li>
-
-      <li><p><%= comment.comment %></p></li>
+  <ul class="tabs" data-tab role="tablist">
+    <li class="tab-title active" role="presentation"><a href="#panel2-1" role="tab" tabindex="0" aria-selected="true" aria-controls="panel2-1">Project</a></li>
+    <li class="tab-title" role="presentation"><a href="#panel2-2" role="tab" tabindex="0" aria-selected="false" aria-controls="panel2-2">Comments</a></li>
     </ul>
-    <% end %>
+  <div class="tabs-content">
+    <section role="tabpanel" aria-hidden="false" class="content active" id="panel2-1">
 
-    <% if logged_in? %> 
-    <%= form_for @comment do |f| %>
+      <div class="row">
+        <div class="medium-12 columns center">
+          <p >
+            <strong>
+              <h2><%=link_to @project.name, @project %></h4>
+              </strong>
+              <p>
 
-    <div class="field">
-      <%= f.label :comment %><br>
-      <%= f.text_field :comment %>
-    </div>
+                <h6 class="subheader"><em>By <%= @project.creator %></em></h6>
+              </p>
+            </p>
 
-    <%= f.hidden_field :project_id %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
+          </div>
+          <div class="medium-8 columns">
 
-    <div class="actions"><%= f.submit "Add Comment", class: "button"%></div>
-    <% end %>
-    <% else %>
-    <h2>You have to be logged in to leave a comment</h2>
+            <p>
 
-    <% end %>
-    </div>
-  </section>
-  
-</div>
+              <%= image_tag @project.project_image.full.url %>
+            </p>
+
+            <p>
+              <strong>User:</strong>
+              <%= link_to @project.user.try(:username), @project.user  %>
+            </p>
+          </div>
+          <div class="medium-4 columns p-right-column">
+
+<% if @project.deadline != nil %>
+            <h4 class="subheader">
+              <strong>Deadline:</strong>
+              <%= @project.deadline %> </h4>
+              <h4 class="subheader">Days left <strong><%= (@project.deadline - Time.now.to_date).to_i %></strong></h4>
+              <% else %>
+              <p>No deadline set</p>
+<% end %>
+              <p>
+                <strong>Goal:</strong>
+                <%=number_to_currency @project.goal %>
+              </p>
+              <% if logged_in? %> 
+              <%= form_for @pledge do |f| %>
+              <div class="field">
+                <%= f.label :amount %><br>
+                <%= f.text_field :amount %>
+              </div>
+
+              <%= f.hidden_field :project_id %>
+              <div class="actions"><%= f.submit "Pledge", class: "button"%></div>
+              <% end %>
+              <% else %>
+              <p>You need to be logged in to make a pledge</p>
+              <% end %>
+              <% if @project.goal - @project.pledges.sum('amount') > 0 %>
+              <p><%=number_to_currency @project.goal - @project.pledges.sum('amount') %> 
+                Needed for this project to be successful.</p>
+                <% end -%>
+
+                <p><%=number_to_currency @project.pledges.sum('amount') %> 
+                 to<%=number_to_currency @project.goal %> Pledged.</p>
+               </div>
+               <p id="notice"><%= notice %></p>
+             </div>
+             <div class="row">
+              <div class="medium-8 columns">
+                <p>
+                  <strong>Description:</strong>
+                  <em><%= @project.description %></em>
+                </p>
+              </div>
+              <div class="medium-4 columns p-right-column">
+                <h4>Rewards:</h4>
+                <% @project.rewards.each do |reward| %>
+                <ul class="no-bullet">
+
+                  <li><%= link_to reward.title %></li>
+
+                  <li><strong>Pledge:</strong> <%=number_to_currency reward.value %> or more </li>
+
+                  <li><strong>Quantity:</strong>Limited only: <strong><%= reward.quantity%></strong> Avaible</li>
+
+                  <li><strong>Description:</strong> <%= reward.description%></li>
+
+                  <li> <strong>Delivery:</strong> <%= reward.estimated_delivery %></li>
+
+                </ul>
+                <% end %>
+
+
+
+                <% if @project.user == current_user %>
+                <div class="Add reward">
+                  <%= link_to "Add Rewad", new_reward_path %>
+                </div>
+                <% end -%>
+              </div>
+            </div>
+            <div class="row">
+              <p>
+                <strong>Tags:</strong>
+                <%= raw @project.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+              </p>
+
+              <p>
+                <strong>Category:</strong>
+                <%= @project.category.name %>
+              </p>
+
+
+              <% if @project.user == current_user %> 
+              <%= link_to 'Edit', edit_project_path(@project), class: "button" %> |
+              <%= link_to 'Back', projects_path,  class: "button" %>
+              <% end %>
+            </div>
+          </section>
+          <section role="tabpanel" aria-hidden="true" class="content" id="panel2-2">
+
+            <div class="row">
+              <h2 class="subheader">Comments</h2>
+              <% @project.comments.each do |comment| %>
+              <ul class="panel no-bullet">
+                <li><%= link_to comment.user.username, comment.user %> said:</li>
+
+                <li><p><%= comment.comment %></p></li>
+              </ul>
+              <% end %>
+
+              <% if logged_in? %> 
+              <%= form_for @comment do |f| %>
+
+              <div class="field">
+                <%= f.label :comment %><br>
+                <%= f.text_field :comment %>
+              </div>
+
+              <%= f.hidden_field :project_id %>
+              <%= f.hidden_field :user_id, value: current_user.id %>
+
+              <div class="actions"><%= f.submit "Add Comment", class: "button"%></div>
+              <% end %>
+              <% else %>
+              <h2>You have to be logged in to leave a comment</h2>
+
+              <% end %>
+            </div>
+          </section>
+
+        </div>
 
 
 
