@@ -22,14 +22,15 @@ header{
  }
 
  .user-profile img{
-  float: left;
-  width: 60px;
+ position: absolute;
+ left: 630px;
+ float: none;
   border: 1px #ccc solid;
 
 
 }
 .user-profile a{
-  width: 70px !important;
+  min-width: 70px;
   float: right;
   text-align: center;
 }

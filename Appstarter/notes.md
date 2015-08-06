@@ -1,5 +1,5 @@
 ##users
-<!-- - has_many :projects
+- has_many :projects
 - has_many :rewards, through: :pledges
 - has_many :pledges
 - has_many :comments, through :projects
@@ -8,20 +8,20 @@
 - username:string
 - password_digest
 - bio:text
-- avatar:text -->
+- avatar:text
 
 
 ##pledges
-<!-- - belongs_to :user
+- belongs_to :user
 - belongs_to :reward
 
 - user:references
 - reward:references
 
-- amount:integer -->
+- amount:integer
 
 ##Projects
-<!-- - has_many :tags
+- has_many :tags
 - has_many :rewards
 - belongs_to :category
 - has_many :pledges, through: :rewards
@@ -36,7 +36,7 @@
 - goal:float
 
 - user:references
-- category:references -->
+- category:references
 
 
 ##Rewards
