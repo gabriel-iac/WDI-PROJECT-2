@@ -4,12 +4,12 @@ Reward.destroy_all
 Comment.destroy_all
 Category.destroy_all
 
-cat1 = Category.create!(name: 'Photography')
-cat2 = Category.create!(name: 'Social')
-cat3 = Category.create!(name: 'Small Business')
-cat4 = Category.create!(name: 'Tech')
-cat5 = Category.create!(name: 'Entertainment')
-cat6 = Category.create!(name: 'Music')
+# cat1 = Category.create!(name: 'Photography')
+# cat2 = Category.create!(name: 'Social')
+# cat3 = Category.create!(name: 'Small Business')
+# cat4 = Category.create!(name: 'Tech')
+# cat5 = Category.create!(name: 'Entertainment')
+# cat6 = Category.create!(name: 'Music')
 
 u1 = User.create!(name: 'Gabriel Iacopetti', username: 'ninja', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'http://rs581.pbsrc.com/albums/ss252/sarge0946/Big%20Cats/tiger1b.jpg~c200')
 u2 = User.create!(name: 'Chuck Norris', username: 'god', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'https://usahitman.com/wp-content/uploads/2012/06/Chuck-norris1.jpg')
@@ -24,11 +24,11 @@ p1 = u1.projects.create!(name: 'Reboot the Suit', creator: 'Smithsonian Institut
 
 For the Smithsonian’s first-ever Appstarter campaign, we are proud to announce plans to conserve, digitize, and display Neil Armstrong’s Apollo 11 spacesuit in time for this milestone anniversary. We want to preserve Armstrong’s spacesuit – and the story it tells of its incredible journey – down to the particles of lunar dust that cling to its surface. Just like the Apollo program, we will accomplish this in collaboration of thousands of people across the country and around the world. And that’s where you come in.
 
-Isn't the Smithsonian federally funded? Good question! Federal appropriations provide the foundation of the Smithsonian's operating budget and support core functions, such as building operations and maintenance, research, and safeguarding the collections. Projects like Reboot the Suit aren’t covered by our federal appropriations, which means we can only undertake them if we can fund them some other way. ", image: 'https://ksr-ugc.imgix.net/projects/1950682/photo-original.jpg?v=1435699216&w=218&h=162&fit=crop&auto=format&q=92&s=8fd69b8ad600741bc99f0d61e9a444a6', goal: 500000, user_id: 1, category_id: 2)
+Isn't the Smithsonian federally funded? Good question! Federal appropriations provide the foundation of the Smithsonian's operating budget and support core functions, such as building operations and maintenance, research, and safeguarding the collections. Projects like Reboot the Suit aren’t covered by our federal appropriations, which means we can only undertake them if we can fund them some other way. ", image: 'https://ksr-ugc.imgix.net/projects/1950682/photo-original.jpg?v=1435699216&w=218&h=162&fit=crop&auto=format&q=92&s=8fd69b8ad600741bc99f0d61e9a444a6', goal: 500000, user_id: 1)
 
 p2 = u3.projects.create!(name: 'Phosphorences', creator: 'Hurricane Films', description: "The documentary will be an essential companion piece to the narrative. Narrated by Cynthia Nixon (who plays Emily in the feature film) PHOSPHORESCENCE will take us on a journey through the seasons of Emily's life in mid 1800’s New England as we engage with her passionate relationships via her letters and poems. Emily’s deep love of horticulture and music as well as her closeness to her family and friends will form a rich tapestry - combining elements of a natural history film and a Koyaanisqatsi-esque travelogue. Together with an ensemble cast of highly recognized actors lending their voices to her many correspondences not dissimilar in tone and feel to Ken Burns' American Civil War. And with the differing views and interpretations of her poetry by contemporary experts we aim to weave a story that will both surprise, delight and throw light on some controversial opinion from unexpected quarters. 
 
- The documentary will endeavor to reflect qualities inspired by its subject, Emily Dickinson – deft words, passionate beliefs, searing individuality and a great story well told. The film has the support of the Emily Dickinson Museum and will be completed in mid 2016.", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 100000, user_id: 2, category_id:5)
+ The documentary will endeavor to reflect qualities inspired by its subject, Emily Dickinson – deft words, passionate beliefs, searing individuality and a great story well told. The film has the support of the Emily Dickinson Museum and will be completed in mid 2016.", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 100000, user_id: 2)
 
 p3 = u4.projects.create!(name: "Bring Ai Weiwei's Tree sculptures to London's Royal Academy", creator: 'Royal Academy of Arts', description: "“An act is worth a million thoughts.” Ai Weiwei
 
@@ -40,7 +40,7 @@ The Royal Academy of Arts (RA) brings major exhibitions to Piccadilly, in the he
 
 What do we want to do?
 
-We want to enable a huge site-specific installation in the RA’s outdoor courtyard off Piccadilly, which will be free to enjoy by all visitors. The eight enormous Tree sculptures are created by one of China’s most visionary and provocative artists, Ai Weiwei. Ai’s work is brave, provocative and visionary, and gives voice not only to his own beliefs, but also those who have no voice.", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 100000, user_id: 3, category_id:2)
+We want to enable a huge site-specific installation in the RA’s outdoor courtyard off Piccadilly, which will be free to enjoy by all visitors. The eight enormous Tree sculptures are created by one of China’s most visionary and provocative artists, Ai Weiwei. Ai’s work is brave, provocative and visionary, and gives voice not only to his own beliefs, but also those who have no voice.", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 100000, user_id: 3)
 
 p4 = u2.projects.create!(name: 'Time of Global Inequality', creator: 'Myles Little', description: "
   WORLDWIDE PHOTO EXHIBIT
@@ -81,7 +81,7 @@ Six members of the Walton family own more wealth than the bottom 40% of America.
 In 2014, the top five hedge fund managers in America made about one billion dollars each. 
 Inequality in the US is at a 100-year peak. 
 From 2009 to 2012, the top 1% of Americans saw their income grow by over 30%. The other 99% saw an increase of under 1%. 
-Harvard Business School asked Americans how much they think major CEOs make relative to ordinary workers. The median respondent thought the ratio was perhaps 30 to 1. The reality? It's closer to 350 to 1.", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 29500, user_id: 1, category_id:1)
+Harvard Business School asked Americans how much they think major CEOs make relative to ordinary workers. The median respondent thought the ratio was perhaps 30 to 1. The reality? It's closer to 350 to 1.", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 29500, user_id: 1)
 
 p5 = u1.projects.create!(name: 'Remix Mini', creator: 'Jide Tech', description: "
 Powered by our popular Remix OS, Remix Mini allows you to work and play with the entire Android app ecosystem while taking full advantage of intuitive PC features such as a taskbar, multiple window multi-tasking, mouse and keyboard support, and so much more.
@@ -99,7 +99,7 @@ Even at its small size, Remix Mini comes equipped with everything you need in or
 
 The typical desktop computer clocks in at anywhere between 65 to 250 watts. Remix Mini gives you the same power of desktop computing at a mere 10 watts. By simply leveraging already existing power efficiencies found in mobile CPU architectures, Remix Mini is able to save you so much more in power without sacrificing anything in performance. 
 
-To whom much is given, much is expected. Remix Mini comes in two versions. Both run Remix OS smoothly, but vary depending on how you plan on using your Mini. As a home media center, the 1G RAM + 8 GB storage gives you more than what you need to stream and download that blockbuster movie you’ve been dying to see. Now, if you’re looking for something with a bit more kick and productivity in mind, we highly recommend the 2G RAM + 16GB storage version. No matter what you decide, the choice will quite literally be in your hands.", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 50000, user_id: 4, category_id:4)
+To whom much is given, much is expected. Remix Mini comes in two versions. Both run Remix OS smoothly, but vary depending on how you plan on using your Mini. As a home media center, the 1G RAM + 8 GB storage gives you more than what you need to stream and download that blockbuster movie you’ve been dying to see. Now, if you’re looking for something with a bit more kick and productivity in mind, we highly recommend the 2G RAM + 16GB storage version. No matter what you decide, the choice will quite literally be in your hands.", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 50000, user_id: 4)
 
 p6 = u3.projects.create!(name: 'Community Through Food', creator: 'Benjamin Dailey', description: "COMMUNITY THROUGH FOOD
 The Spanish word ‘cebo’ can be defined in many ways. Some of which may include things like; bait used to lure wild game, food as fuel or nourishment, or just plain fodder. The definition we use to represent this project goes more along the lines of ‘anything that is presented to entice’. Great food is an extremely powerful tool in creating a sense of community and interaction among those we serve. Great food, great people, and great memories… theses sometimes forgotten ideals are the foundation of Cebo. Eat Well!
@@ -112,13 +112,13 @@ Thank you to everyone who is visiting this page and to everyone who has supporte
 
 We are truly taking a grassroots approach in launching Cebo. so any support will significantly help the cause... whether it be monetary backing, sharing our campaign on your social media page, or just plain word of mouth promotions we are very grateful for every ounce of support we have and will receive. 
 
-", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 7500, user_id: 4, category_id:3)
+", image: 'http://thetraveljam.com/wp-content/uploads/2015/01/Miky-in-Norway-Geiranger.jpg', goal: 7500, user_id: 4)
 
 
 
 # Reward(id: integer, title: string, value: float, description: text, quantity: integer, estimated_delivery: date, project_id: integer, created_at: datetime, updated_at: datetime)
 
-r1 = p1.rewards.create!(title: 'T-shirt', value: 100, description: 'A t-shirt with logo', quantity: 50, project_id: 1)
+r1 = p1.rewards.create!(title: 'T-shirt', value: 100, description: 'A t-shirt with logo', quantity: 50)
 r1 = p1.rewards.create!(title: 'Space suit', value: 4000, description: 'A Completely new spacesuit with google glass', quantity: 10, project_id: 1)
 
 
