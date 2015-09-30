@@ -11,12 +11,12 @@ u2 = User.create!(name: 'Chuck Norris', username: 'god', password: '123', passwo
 u3 = User.create!(name: 'Vittorio Sgarbi', username: 'capra', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'http://www.trapanioggi.it/wp-content/uploads/2014/05/Sgarbi_capra.jpg')
 u4 = User.create!(name: 'Spidermn', username: 'spider', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'http://s1.static.gotsmile.net/images/2011/08/22/black-spiderman-fail_13140071484.jpg')
 
-# cat1 = Category.create!(name: 'Photography')
-# cat2 = Category.create!(name: 'Social')
-# cat3 = Category.create!(name: 'Small Business')
-# cat4 = Category.create!(name: 'Tech')
-# cat5 = Category.create!(name: 'Entertainment')
-# cat6 = Category.create!(name: 'Music')
+cat1 = Category.create!(name: 'Photography')
+cat2 = Category.create!(name: 'Social')
+cat3 = Category.create!(name: 'Small Business')
+cat4 = Category.create!(name: 'Tech')
+cat5 = Category.create!(name: 'Entertainment')
+cat6 = Category.create!(name: 'Music')
 
 # # projects(id: integer, name: string, creator: string, description: text, image: text, deadline: date, goal: float, user_id: integer, created_at: datetime, updated_at: datetime)
 
