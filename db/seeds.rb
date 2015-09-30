@@ -1,8 +1,8 @@
-User.destroy_all
-Project.destroy_all
-Reward.destroy_all
-Comment.destroy_all
-Category.destroy_all
+# User.destroy_all
+# Project.destroy_all
+# Reward.destroy_all
+# Comment.destroy_all
+# Category.destroy_all
 
 cat1 = Category.create!(name: 'Photography')
 cat2 = Category.create!(name: 'Social')
