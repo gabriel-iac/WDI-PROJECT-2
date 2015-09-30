@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 gem 'acts-as-taggable-on'
 gem 'ransack'
-gem 'rmagick', '>= 2.13.3'
+gem 'rmagick', '2.13.3'
 gem 'carrierwave'
 gem 'foundation-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
