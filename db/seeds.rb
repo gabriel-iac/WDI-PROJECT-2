@@ -4,12 +4,12 @@ Reward.destroy_all
 Comment.destroy_all
 Category.destroy_all
 
-# cat1 = Category.create!(name: 'Photography')
-# cat2 = Category.create!(name: 'Social')
-# cat3 = Category.create!(name: 'Small Business')
-# cat4 = Category.create!(name: 'Tech')
-# cat5 = Category.create!(name: 'Entertainment')
-# cat6 = Category.create!(name: 'Music')
+cat1 = Category.create!(name: 'Photography')
+cat2 = Category.create!(name: 'Social')
+cat3 = Category.create!(name: 'Small Business')
+cat4 = Category.create!(name: 'Tech')
+cat5 = Category.create!(name: 'Entertainment')
+cat6 = Category.create!(name: 'Music')
 
 u1 = User.create!(name: 'Gabriel Iacopetti', username: 'ninja', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'http://rs581.pbsrc.com/albums/ss252/sarge0946/Big%20Cats/tiger1b.jpg~c200')
 u2 = User.create!(name: 'Chuck Norris', username: 'god', password: '123', password_confirmation: '123' , bio: 'i hate errors' , avatar: 'https://usahitman.com/wp-content/uploads/2012/06/Chuck-norris1.jpg')
