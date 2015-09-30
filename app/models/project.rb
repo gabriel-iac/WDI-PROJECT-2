@@ -10,9 +10,9 @@ class Project < ActiveRecord::Base
 
   validates :name, presence:true
   validates :description, presence:true
-  validates :deadline, presence:true
+  # validates :deadline, presence:true
   validates :goal, presence:true
   validates :goal, numericality:true
-  validates :project_image, presence:true
+  # validates :project_image, presence:true
   validates :category, presence:true
 end
