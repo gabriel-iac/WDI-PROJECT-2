@@ -8,7 +8,7 @@ class CreateProjects < ActiveRecord::Migration
       t.date :deadline
       t.float :goal
       t.references :user, index: true, foreign_key: true
-      t.references :category, index: true, foreign_key: true
+      
       t.timestamps null: false
     end
   end
